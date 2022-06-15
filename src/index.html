@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesto</title>
+</head>
+
+<body>
+  <div class="page">
+    <header class="header">
+      <img src="<%=require('./images/logotype.svg')%>" alt="Логотип" class="header__logotype">
+    </header>
+
+    <main class="main">
+      <section class="profile">
+        <div class="profile-info">
+          <div class="profile-info__avatar-wrapper">
+            <img src="<%=require('./images/image-not-found.jpg')%>" alt="Аватар" class="profile-info__avatar">
+          </div>
+          <h1 class="profile-info__name"></h1>
+          <p class="profile-info__about"></p>
+          <button type="button" id="edit-profile" class="profile-info__edit-button"></button>
+        </div>
+        <button type="button" id="add-element" class="profile__add-button"></button>
+      </section>
+
+      <section class="elements"></section>
+    </main>
+
+    <section class="popup" id="popup-element">
+      <form class="popup__form" id="form-element" autocomplete="off" novalidate>
+        <h3 class="popup__title">Новое место</h3>
+        <input type="text" name="name" id="element-title" class="popup__input" placeholder="Название" minlength="2"
+          maxlength="30" required>
+        <p class="popup__error element-title-error"></p>
+        <input type="url" name="link" id="element-image" class="popup__input" placeholder="Ссылка на картинку" required>
+        <p class="popup__error element-image-error"></p>
+        <button type="submit" id="element-submit" class="popup__button">Создать</button>
+        <button type="button" class="popup__close"></button>
+      </form>
+    </section>
+
+    <section class="popup" id="popup-profile">
+      <form class="popup__form" id="form-profile" autocomplete="off" novalidate>
+        <h3 class="popup__title">Редактировать профиль</h3>
+        <input type="text" name="name" id="profile-name" class="popup__input" placeholder="Имя" minlength="2"
+          maxlength="40" required>
+        <p class="popup__error profile-name-error"></p>
+        <input type="text" name="about" id="profile-about" class="popup__input" placeholder="Описание" minlength="2"
+          maxlength="200" required>
+        <p class="popup__error profile-about-error"></p>
+        <button type="submit" id="profile-submit" class="popup__button">Сохранить</button>
+        <button type="button" class="popup__close"></button>
+      </form>
+    </section>
+
+    <section class="popup" id="popup-image">
+      <div class="popup-image">
+        <img class="popup-image__image" src="<%=require('./images/image-not-found.jpg')%>" alt="Изображение не найдено">
+        <div class="popup-image__title"></div>
+        <button type="button" class="popup__close"></button>
+      </div>
+    </section>
+
+    <section class="popup" id="popup-confirm">
+      <form class="popup-confirm">
+        <h3 class="popup-confirm__title">Вы уверены?</h3>
+        <button id="confirm-delete" class="popup__button">Да</button>
+        <button type="button" class="popup__close"></button>
+      </form>
+    </section>
+
+    <section class="popup" id="popup-avatar">
+      <form class="popup__form" id="form-avatar" autocomplete="off" novalidate>
+        <h3 class="popup__title">Обновить аватар</h3>
+        <input type="url" name="avatar" id="profile-avatar" class="popup__input" placeholder="Ссылка" required>
+        <p class="popup__error profile-avatar-error"></p>
+        <button type="submit" id="avatar-submit" class="popup__button">Сохранить</button>
+        <button type="button" class="popup__close"></button>
+      </form>
+    </section>
+
+    <footer class="footer">
+      <p class="footer__copyright">© 2020 Mesto Russia</p>
+    </footer>
+  </div>
+
+  <template id="element">
+    <div class="element">
+      <img src="<%=require('./images/image-not-found.jpg')%>" alt="Изображение не найдено" class="element__cover">
+      <div class="element__info">
+        <p class="element__title"></p>
+        <button type="button" class="element__like"></button>
+      </div>
+      <button type="button" class="element__delete"></button>
+    </div>
+  </template>
+</body>
+
+</html>
